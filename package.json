@@ -1,0 +1,19 @@
+{
+  "name": "api-express-backend",
+  "version": "1.0.0",
+  "description": "npm init // Criar o package.json para iniciar um projeto node \r npm i nome_pacote // instala um pacote especifico\r npm install ou npm i // instala todos pacotes do package.json",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Julioklyn/api-backend-express.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Julioklyn/api-backend-express/issues"
+  },
+  "homepage": "https://github.com/Julioklyn/api-backend-express#readme"
+}
