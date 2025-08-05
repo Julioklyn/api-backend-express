@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Julioklyn/api-backend-express/issues"
   },
-  "homepage": "https://github.com/Julioklyn/api-backend-express#readme"
+  "homepage": "https://github.com/Julioklyn/api-backend-express#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
 }
