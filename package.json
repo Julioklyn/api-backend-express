@@ -2,9 +2,9 @@
   "name": "api-express-backend",
   "version": "1.0.0",
   "description": "npm init // Criar o package.json para iniciar um projeto node \r npm i nome_pacote // instala um pacote especifico\r npm install ou npm i // instala todos pacotes do package.json",
-  "main": "index.js",
+  "main": "src/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/server.js"
   },
   "repository": {
     "type": "git",
