@@ -35,4 +35,4 @@ app.post('/produto',(req, res)=> {
   res.json({message: 'Criado com sucesso!'})
 })
 
-- método post (criar ou inserir: /produto
+- método post criar ou inserir: /produto

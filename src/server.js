@@ -1,33 +1,23 @@
 import express from 'express'
+import profileRouter from './routers/profileRouter.js'
+import productRouter from './routers/productRouter.js'
+import supplierRouter from './routers/supplierRouter.js'
+import carRouter from './routers/carRouter.js'
 
 const app = express()
 const port = 3000
 
-app.use(express.json())
+app.use(express.json())//Converter oJSON que chegou na requisição em um objeto js e vai salvar
 
-app.put('/produto', (req, res) => {
-    //pegar dados do Usuário
-  res.json('Usuário editado com sucesso!')
-})
 
-app.get('/profile', (req, res) => {
-  res.json({ message: 'Obtendo dados do perfil' });
-});
+app.use('/profile', profileRouter) 
 
-app.post('/profile', (req, res) => {
-  const dados = req.body
-  console.log(dados);
-  res.json({ message: 'Perfil criado com sucesso' });
-});
+app.use('/profile', productRouter) 
 
-app.put('/profile', (req, res) => {
-  res.json({ message: 'Perfil atualizado com sucesso' });
-});
+app.use('/profile', supplierRouter) 
 
-app.delete('/profile', (req, res) => {
-  res.json({ message: 'Perfil excluído com sucesso' });
-});
+app.use('/profile', carRouter) 
 
 app.listen(port, () => {
-  console.log(`Example app listening on port http://localhost:${port}`)
-})
+  console.log(`Server is running on http://localhost:${port}`)
+} );
