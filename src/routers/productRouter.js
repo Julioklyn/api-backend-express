@@ -1,30 +1,16 @@
-// src/routers/productRouter.js
-import express from 'express';
+import express from 'express'
+import { createProductController } from '../controllers/product/createProductController.js'
+import { listProductController } from '../controllers/product/listProductController.js'
+import { getByIdProductController } from '../controllers/product/getByIdProductController.js'
+import { editProductController } from '../controllers/product/editProductController.js'
+import { deleteProductController } from '../controllers/product/deleteProductController.js'
 
-const router = express.Router();
+const router = express.Router()
 
-// Criar ou atualizar produto
-router.post('/update', (req, res) => {
-  const dados = req.body;
-  res.json({
-    message: 'Produto atualizado com sucesso',
-    product: dados
-  });
-});
+router.post('/', createProductController)
+router.get('/', listProductController)
+router.get('/:id', getByIdProductController)
+router.put('/:id', editProductController)
+router.delete('/:id', deleteProductController)
 
-// Lista todos os produtos
-router.get('/', (req, res) => {
-  res.json({ message: 'Obtendo dados do Produto' });
-});
-
-// Atualizar produto
-router.put('/', (req, res) => {
-  res.json({ message: 'Produto atualizado com sucesso' });
-});
-
-// Excluir produto
-router.delete('/', (req, res) => {
-  res.json({ message: 'Produto excluído com sucesso' });
-});
-
-export default router;
+export default router

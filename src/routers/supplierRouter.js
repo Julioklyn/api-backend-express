@@ -1,30 +1,16 @@
-// src/routers/supplierRouter.js
-import express from 'express';
+import express from 'express'
+import { createSupplierController } from '../controllers/supplier/createSupplierController.js'
+import { listSupplierController } from '../controllers/supplier/listSupplierController.js'
+import { getByIdSupplierController } from '../controllers/supplier/getByIdSupplierController.js'
+import { editSupplierController } from '../controllers/supplier/editSupplierController.js'
+import { deleteSupplierController } from '../controllers/supplier/deleteSupplierController.js'
 
-const router = express.Router();
+const router = express.Router()
 
-// Criar ou atualizar fornecedor
-router.post('/update', (req, res) => {
-  const dados = req.body;
-  res.json({
-    message: 'Supplier updated successfully',
-    supplier: dados
-  });
-});
+router.post('/', createSupplierController)
+router.get('/', listSupplierController)
+router.get('/:id', getByIdSupplierController)
+router.put('/:id', editSupplierController)
+router.delete('/:id', deleteSupplierController)
 
-// Lista todos os fornecedores
-router.get('/', (req, res) => {
-  res.json({ message: 'Obtendo dados do Fornecedor' });
-});
-
-// Atualizar fornecedor
-router.put('/', (req, res) => {
-  res.json({ message: 'Fornecedor atualizado com sucesso' });
-});
-
-// Excluir fornecedor
-router.delete('/', (req, res) => {
-  res.json({ message: 'Supplier excluído com sucesso' });
-});
-
-export default router;
+export default router

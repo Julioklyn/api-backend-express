@@ -1,30 +1,16 @@
-// src/routers/profileRouter.js
-import express from 'express';
+import express from 'express'
+import { createProfileController } from '../controllers/profile/createProfileController.js'
+import { listProfileController } from '../controllers/profile/listProfileController.js'
+import { getByIdProfileController } from '../controllers/profile/getByIdProfileController.js'
+import { editProfileController } from '../controllers/profile/editProfileController.js'
+import { deleteProfileController } from '../controllers/profile/deleteProfileController.js'
 
-const router = express.Router();
+const router = express.Router()
 
-// Criar ou atualizar perfil
-router.post('/update', (req, res) => {
-  const dados = req.body;
-  res.json({
-    message: 'Profile updated successfully',
-    profile: dados
-  });
-});
+router.post('/', createProfileController)
+router.get('/', listProfileController)
+router.get('/:id', getByIdProfileController)
+router.put('/:id', editProfileController)
+router.delete('/:id', deleteProfileController)
 
-// Lista todos os perfis
-router.get('/', (req, res) => {
-  res.json({ message: 'Obtendo dados do perfil' });
-});
-
-// Atualizar perfil
-router.put('/', (req, res) => {
-  res.json({ message: 'Perfil atualizado com sucesso' });
-});
-
-// Excluir perfil
-router.delete('/', (req, res) => {
-  res.json({ message: 'Perfil excluído com sucesso' });
-});
-
-export default router;
+export default router
