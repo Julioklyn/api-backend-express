@@ -8,8 +8,21 @@ export const create = async(profile) => {
     });
 }
 
+export const update = async(id, profile) => {
+    return await prisma.user.update({
+        where: {id},
+        data: profile
+    });
+}
+
 export const list = async () => {
     return await prisma.user.findMany();
+}
+
+export const getById = async(id) => {
+    return await prisma.user.findUnique({
+        where: {id}
+    });
 }
 
 export const remove = async(id) => {
