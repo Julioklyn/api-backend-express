@@ -5,6 +5,7 @@ import supplierRouter from './routers/supplierRouter.js' // Importando o roteado
 import carRouter from './routers/carRouter.js' // Importando o roteador de carro
 import cors from 'cors'
 import { logger } from './middleware/logger.js'
+import authRouter from './routers/authRouter.js' // Importando o roteador de autenticação
 
 const app = express() // Criando uma instância do express
 const port = 3000 // Definindo a porta do servidor
@@ -12,6 +13,8 @@ const port = 3000 // Definindo a porta do servidor
 app.use(logger)
 app.use(cors()) // Habilitando CORS para todas as rotas
 app.use(express.json()) // Middleware para converter JSON em um objeto no req.body
+
+app.use('/auth', authRouter)
 
 app.use('/profile', profileRouter) // Usando o roteador de perfil para rotas que começam com /profile
 app.use('/product', productRouter) // Usando o roteador de produto para rotas que começam com /product
